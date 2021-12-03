@@ -27,8 +27,7 @@
 		<Optimize>false</Optimize>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-		<DebugSymbols>false</DebugSymbols>
-		<DebugType>portable</DebugType>
+		<DebugType>none</DebugType>
 		<DefineConstants>TRACE</DefineConstants>
 		<Optimize>true</Optimize>
 		<PathMap>$(MSBuildProjectDirectory)=${$(MSBuildProjectName)}/</PathMap>

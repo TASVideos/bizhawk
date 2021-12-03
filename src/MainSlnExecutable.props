@@ -3,6 +3,7 @@
 	<PropertyGroup>
 		<OutputPath>$(MSBuildProjectDirectory)/../../output</OutputPath>
 		<AssemblyName>$(MSBuildProjectName.Substring($([MSBuild]::Add($(MSBuildProjectName.LastIndexOf('.')), 1))))</AssemblyName>
+		<TargetName>$(AssemblyName)</TargetName>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
 		<OutputType>Exe</OutputType>
@@ -13,10 +14,10 @@
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
 		<ItemGroup>
 			<NotExecFilesFromExecProj Include="$(OutputPath)*.deps.json" />
-			<NotExecFilesFromExecProj Include="$(OutputPath)*.dll" />
+			<NotExecFilesFromExecProj Include="$(OutputPath)*.dll" Exclude="$(OutputPath)EmuHawk.dll;$(OutputPath)DiscoHawk.dll" />
 			<NotExecFilesFromExecProj Include="$(OutputPath)*.pdb" Exclude="$(OutputPath)EmuHawk.pdb;$(OutputPath)DiscoHawk.pdb" />
 			<NotExecFilesFromExecProj Include="$(OutputPath)*.xml" />
 		</ItemGroup>
-		<Move Condition=" $(IsTargetingNetFramework) " SourceFiles="@(NotExecFilesFromExecProj)" DestinationFolder="$(OutputPath)dll/" />
+		<Move SourceFiles="@(NotExecFilesFromExecProj)" DestinationFolder="$(OutputPath)dll/" />
 	</Target>
 </Project>

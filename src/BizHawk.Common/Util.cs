@@ -5,7 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-#if NET6_0
+#if NET6_0_OR_GREATER
 using System.Runtime.CompilerServices;
 #endif
 using System.Threading;

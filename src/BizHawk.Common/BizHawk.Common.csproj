@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
 	</PropertyGroup>
 	<Import Project="../MainSlnCommon.props" />
 	<PropertyGroup>
@@ -15,5 +15,8 @@
 	</ItemGroup>
 	<ItemGroup>
 		<Analyzer Include="$(MSBuildProjectDirectory)/../../References/BizHawk.SrcGen.VersionInfo.dll" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="IsExternalInit.cs" Condition="$(TargetFramework) == 'net8.0'" />
 	</ItemGroup>
 </Project>
