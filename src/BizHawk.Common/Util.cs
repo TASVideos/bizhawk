@@ -81,16 +81,16 @@ namespace BizHawk.Common
 			return a.All(kvp => b.TryGetValue(kvp.Key, out var bVal) && comparer.Equals(kvp.Value, bVal));
 		}
 
-#if NET6_0
-		public static string DescribeIsNull<T>(T? obj, [CallerArgumentExpression("obj")] string? expr = default)
+#if NET6_0_OR_GREATER
+		public static string DescribeIsNull<T>(T? obj, [CallerArgumentExpression(nameof(obj))] string? expr = default)
 #else
 		public static string DescribeIsNull<T>(T? obj, string expr)
 #endif
 			where T : class
 			=> $"{expr} is {(obj is null ? "null" : "not null")}";
 
-#if NET6_0
-		public static string DescribeIsNullValT<T>(T? boxed, [CallerArgumentExpression("boxed")] string? expr = default)
+#if NET6_0_OR_GREATER
+		public static string DescribeIsNullValT<T>(T? boxed, [CallerArgumentExpression(nameof(boxed))] string? expr = default)
 #else
 		public static string DescribeIsNullValT<T>(T? boxed, string expr)
 #endif
@@ -122,7 +122,7 @@ namespace BizHawk.Common
 			}
 			catch (ReflectionTypeLoadException e)
 			{
-				return e.Types.Where(t => t != null);
+				return e.Types.Where(t => t != null)!;
 			}
 		}
 

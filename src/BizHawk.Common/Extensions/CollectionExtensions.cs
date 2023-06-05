@@ -145,7 +145,7 @@ namespace BizHawk.Common.CollectionExtensions
 				? countable.Count == n
 				: collection.Take(n + 1).Count() == n;
 
-#if !NET6_0
+#if !NET6_0_OR_GREATER
 		/// <summary>
 		/// Returns the value at <paramref name="key"/>.
 		/// If the key is not present, returns default(TValue).
@@ -188,7 +188,7 @@ namespace BizHawk.Common.CollectionExtensions
 		/// I suppose it's not that important because it's called on cache miss --yoshi
 		/// </remarks>
 		public static TValue GetValueOrPutNew1<TKey, TValue>(this IDictionary<TKey, TValue> dictionary, TKey key)
-			=> dictionary.GetValueOrPut(key, static k => (TValue) Activator.CreateInstance(typeof(TValue), k));
+			=> dictionary.GetValueOrPut(key, static k => (TValue) Activator.CreateInstance(typeof(TValue), k)!);
 
 		/// <inheritdoc cref="IList{T}.IndexOf"/>
 		/// <remarks>
@@ -212,6 +212,7 @@ namespace BizHawk.Common.CollectionExtensions
 			return null;
 		}
 
+#if !NET7_0_OR_GREATER
 		/// <remarks>shorthand for <c>this.OrderBy(static e => e)</c>, backported from .NET 7</remarks>
 		public static IOrderedEnumerable<T> Order<T>(this IEnumerable<T> source)
 			where T : IComparable<T>
@@ -221,6 +222,7 @@ namespace BizHawk.Common.CollectionExtensions
 		public static IOrderedEnumerable<T> OrderDescending<T>(this IEnumerable<T> source)
 			where T : IComparable<T>
 			=> source.OrderByDescending(ReturnSelf);
+#endif
 
 		/// <inheritdoc cref="List{T}.RemoveAll"/>
 		/// <remarks>
@@ -268,9 +270,11 @@ namespace BizHawk.Common.CollectionExtensions
 			return true;
 		}
 
+#if !NET8_0_OR_GREATER
 		/// <summary>shallow clone</summary>
 		public static Dictionary<TKey, TValue> ToDictionary<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> list)
 			=> list.ToDictionary(static kvp => kvp.Key, static kvp => kvp.Value);
+#endif
 
 		public static bool IsSortedAsc<T>(this IReadOnlyList<T> list)
 			where T : IComparable<T>

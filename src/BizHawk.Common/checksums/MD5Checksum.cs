@@ -19,7 +19,7 @@ namespace BizHawk.Common
 
 		public /*static readonly*/const string EmptyFile = "D41D8CD98F00B204E9800998ECF8427E";
 
-#if NET6_0
+#if NET6_0_OR_GREATER
 		public static byte[] Compute(ReadOnlySpan<byte> data)
 			=> MD5.HashData(data);
 #else

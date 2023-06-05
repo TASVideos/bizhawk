@@ -58,7 +58,7 @@ namespace BizHawk.BizInvoke
 		/// </summary>
 		/// <returns></returns>
 		public static int ComputeClassFirstFieldOffset()
-			=> ComputeFieldOffset(typeof(CF).GetField("FirstField"));
+			=> ComputeFieldOffset(typeof(CF).GetField("FirstField")!);
 
 		/// <summary>
 		/// Compute the byte offset of the first byte of string data (UTF16) relative to a pointer to the string.

@@ -32,12 +32,12 @@ namespace BizHawk.Client.Common
 			return task;
 		}
 
-		/// <summary>calls <see cref="ClientWebSocket.ReceiveAsync"/></summary>
+		/// <summary>calls <see cref="ClientWebSocket.ReceiveAsync(System.ArraySegment{byte}, CancellationToken)"/></summary>
 		public Task<WebSocketReceiveResult> Receive(ArraySegment<byte> buffer, CancellationToken? cancellationToken = null)
 			=> _w?.ReceiveAsync(buffer, cancellationToken ?? CancellationToken.None)
 				?? throw new ObjectDisposedException(nameof(_w));
 
-		/// <summary>calls <see cref="ClientWebSocket.ReceiveAsync"/></summary>
+		/// <summary>calls <see cref="ClientWebSocket.ReceiveAsync(System.ArraySegment{byte}, CancellationToken)"/></summary>
 		public string Receive(int bufferCap, CancellationToken? cancellationToken = null)
 		{
 			if (_w == null) throw new ObjectDisposedException(nameof(_w));
@@ -46,12 +46,12 @@ namespace BizHawk.Client.Common
 			return Encoding.UTF8.GetString(buffer, 0, result.Count);
 		}
 
-		/// <summary>calls <see cref="ClientWebSocket.SendAsync"/></summary>
+		/// <summary>calls <see cref="ClientWebSocket.SendAsync(System.ArraySegment{byte}, WebSocketMessageType, bool, CancellationToken)"/></summary>
 		public Task Send(ArraySegment<byte> buffer, WebSocketMessageType messageType, bool endOfMessage, CancellationToken? cancellationToken = null)
 			=> _w?.SendAsync(buffer, messageType, endOfMessage, cancellationToken ?? CancellationToken.None)
 				?? throw new ObjectDisposedException(nameof(_w));
 
-		/// <summary>calls <see cref="ClientWebSocket.SendAsync"/></summary>
+		/// <summary>calls <see cref="ClientWebSocket.SendAsync(System.ArraySegment{byte}, WebSocketMessageType, bool, CancellationToken)"/></summary>
 		public Task Send(string message, bool endOfMessage, CancellationToken? cancellationToken = null)
 		{
 			if (_w == null) throw new ObjectDisposedException(nameof(_w));
