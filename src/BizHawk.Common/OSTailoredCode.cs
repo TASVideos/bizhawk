@@ -2,7 +2,9 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
+#if !NET6_0_OR_GREATER
 using BizHawk.Common.StringExtensions;
+#endif
 
 using static BizHawk.Common.LoaderApiImports;
 
