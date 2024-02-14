@@ -55,7 +55,7 @@ namespace BizHawk.Emulation.Cores.Computers.AmstradCPC
 		public override void WritePort(ushort port, byte value)
 		{
 			BitArray portBits = new BitArray(BitConverter.GetBytes(port));
-			BitArray dataBits = new BitArray(BitConverter.GetBytes(value));
+			BitArray dataBits = new BitArray(new[] {value});
 			byte portUpper = (byte)(port >> 8);
 			byte portLower = (byte)(port & 0xff);
 
