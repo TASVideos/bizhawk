@@ -15,7 +15,7 @@ namespace BizHawk.Client.Common
 	public static class DisplaySurfaceIDParser
 	{
 #pragma warning disable BHI1005 // switching on string, possibly from user input, ArgumentException is correct here
-		[return: NotNullIfNotNull("str")]
+		[return: NotNullIfNotNull(nameof(str))]
 		public static DisplaySurfaceID? Parse(string? str) => str?.ToLowerInvariant() switch
 		{
 			null => null, // this makes it easy to cascade the "remembered" value

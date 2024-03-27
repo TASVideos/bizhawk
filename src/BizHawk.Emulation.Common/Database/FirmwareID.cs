@@ -28,7 +28,7 @@ namespace BizHawk.Emulation.Common
 			Firmware = firmware;
 		}
 
-		public override bool Equals(object obj) => obj is FirmwareID other
+		public override bool Equals(object? obj) => obj is FirmwareID other
 			&& other.Firmware == Firmware && other.System == System;
 
 		public override int GetHashCode() => (System, Firmware).GetHashCode();

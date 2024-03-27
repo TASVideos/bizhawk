@@ -30,7 +30,7 @@ namespace BizHawk.Common
 
 		private static string[] Escape(IEnumerable<string> args)
 		{
-			return args.Select(s => s.Contains(" ") ? $"\"{s}\"" : s).ToArray();
+			return args.Select(s => s.Contains(' ') ? $"\"{s}\"" : s).ToArray();
 		}
 
 		//note: accepts . or : in the stream stream/substream separator in the stream ID format, since that changed at some point in FFMPEG history

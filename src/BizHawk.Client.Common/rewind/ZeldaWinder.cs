@@ -291,7 +291,11 @@ namespace BizHawk.Client.Common
 					_dest = replacement;
 				}
 			}
+#if NET6_0_OR_GREATER
+			public override void Write(ReadOnlySpan<byte> buffer)
+#else
 			public void Write(ReadOnlySpan<byte> buffer)
+#endif
 			{
 				var requestedSize = _position + buffer.Length;
 				MaybeResize(requestedSize);
@@ -305,7 +309,11 @@ namespace BizHawk.Client.Common
 				_dest[_position] = value;
 				_position = requestedSize;
 			}
+#if NET6_0_OR_GREATER
+			public override int Read(Span<byte> buffer) => throw new IOException();
+#else
 			public int Read(Span<byte> buffer) => throw new IOException();
+#endif
 		}
 	}
 }

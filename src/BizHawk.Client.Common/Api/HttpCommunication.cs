@@ -7,7 +7,7 @@ namespace BizHawk.Client.Common
 {
 	public sealed class HttpCommunication
 	{
-		private readonly HttpClient _client = new HttpClient();
+		public static readonly HttpClient Client = new HttpClient();
 
 		private readonly Func<byte[]> _takeScreenshotCallback;
 
@@ -33,10 +33,10 @@ namespace BizHawk.Client.Common
 			new FormUrlEncodedContent(new Dictionary<string, string> { ["payload"] = payload })
 		).Result;
 
-		public async Task<string> Get(string url)
+		public static async Task<string> Get(string url)
 		{
-			_client.DefaultRequestHeaders.ConnectionClose = false;
-			var response = await _client.GetAsync(url).ConfigureAwait(false);
+			Client.DefaultRequestHeaders.ConnectionClose = false;
+			var response = await Client.GetAsync(url).ConfigureAwait(false);
 			if (response.IsSuccessStatusCode)
 			{
 				return await response.Content.ReadAsStringAsync();
@@ -44,13 +44,13 @@ namespace BizHawk.Client.Common
 			return null;
 		}
 
-		public async Task<string> Post(string url, FormUrlEncodedContent content)
+		public static async Task<string> Post(string url, FormUrlEncodedContent content)
 		{
-			_client.DefaultRequestHeaders.ConnectionClose = true;
+			Client.DefaultRequestHeaders.ConnectionClose = true;
 			HttpResponseMessage response;
 			try
 			{
-				response = await _client.PostAsync(url, content).ConfigureAwait(false);
+				response = await Client.PostAsync(url, content).ConfigureAwait(false);
 			}
 			catch (Exception e)
 			{
@@ -87,7 +87,7 @@ namespace BizHawk.Client.Common
 
 			if (timeout != 0)
 			{
-				_client.Timeout = new TimeSpan(0, 0, 0, timeout / 1000, timeout % 1000);
+				Client.Timeout = new TimeSpan(0, 0, 0, timeout / 1000, timeout % 1000);
 				Timeout = timeout;
 			}
 		}

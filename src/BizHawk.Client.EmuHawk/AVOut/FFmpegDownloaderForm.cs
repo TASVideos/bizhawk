@@ -160,4 +160,3 @@ namespace BizHawk.Client.EmuHawk
 		}
 	}
 }
-

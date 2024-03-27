@@ -25,7 +25,7 @@ namespace BizHawk.Common
 
 		public /*static readonly*/const string Zero = "0000000000000000000000000000000000000000";
 
-#if NET6_0
+#if NET6_0_OR_GREATER
 		public static byte[] Compute(ReadOnlySpan<byte> data)
 			=> SHA1.HashData(data);
 

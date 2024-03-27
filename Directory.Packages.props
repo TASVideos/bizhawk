@@ -28,7 +28,7 @@
 		<PackageVersion Include="Silk.NET.OpenGL.Legacy" Version="2.18.0" />
 		<PackageVersion Include="SQLitePCLRaw.provider.e_sqlite3" Version="2.1.8" />
 		<PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.435" /><!-- don't forget to update .stylecop.json at the same time -->
-		<PackageVersion Include="System.Collections.Immutable" Version="7.0.0" />
+		<PackageVersion Include="System.Collections.Immutable" Version="8.0.0" />
 		<PackageVersion Include="System.ComponentModel.Annotations" Version="5.0.0" />
 		<PackageVersion Include="System.Drawing.Common" Version="6.0.0" />
 		<PackageVersion Include="System.Memory" Version="4.5.5" />

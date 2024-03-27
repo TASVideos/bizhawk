@@ -20,6 +20,6 @@ namespace BizHawk.Client.Common
 
 		public string? HttpTest() => HTTP == null ? null : string.Join("\n", HttpTestGet(), HTTP.SendScreenshot(), "done testing");
 
-		public string? HttpTestGet() => HTTP?.Get(HTTP.GetUrl)?.Result;
+		public string? HttpTestGet() => HttpCommunication.Get(HTTP?.GetUrl)?.Result;
 	}
 }
