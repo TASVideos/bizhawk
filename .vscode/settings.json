@@ -3,5 +3,10 @@
 	"editor.tabSize": 4,
 	"search.exclude": {
 		"waterbox/**": true
+	},
+	"files.associations": {
+		"*.jaffar": "json",
+		"cstdint": "cpp",
+		"*.ipp": "cpp"
 	}
 }

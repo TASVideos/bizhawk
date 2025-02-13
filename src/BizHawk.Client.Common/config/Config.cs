@@ -115,6 +115,7 @@ namespace BizHawk.Client.Common
 
 		private Dictionary<string, int> TargetZoomFactors { get; set; } = new()
 		{
+			[VSystemID.Raw.Doom] = 1,
 			[VSystemID.Raw.GB] = 3,
 			[VSystemID.Raw.GBA] = 3,
 			[VSystemID.Raw.GBC] = 3,

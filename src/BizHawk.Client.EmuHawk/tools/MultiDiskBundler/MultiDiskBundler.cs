@@ -38,6 +38,7 @@ namespace BizHawk.Client.EmuHawk
 				VSystemID.Raw.AppleII,
 				VSystemID.Raw.Arcade,
 				VSystemID.Raw.C64,
+				VSystemID.Raw.Doom,
 				VSystemID.Raw.GBL,
 				VSystemID.Raw.GEN,
 				VSystemID.Raw.GGL,

@@ -5,6 +5,7 @@ cd emulibc && make -f Makefile $1 -j && cd -
 cd libco && make -f Makefile $1 -j && cd -
 cd ares64 && ./make-both.sh $1 && cd -
 cd bsnescore && make -f Makefile $1 -j && cd -
+cd dsda && make -f Makefile $1 -j && cd -
 cd gpgx && make -f Makefile $1 -j && cd -
 cd libsnes && make -f Makefile $1 -j && cd -
 cd melon && make -f Makefile $1 -j && cd -

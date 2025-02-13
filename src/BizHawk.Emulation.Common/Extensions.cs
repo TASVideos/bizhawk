@@ -26,6 +26,7 @@ namespace BizHawk.Emulation.Common
 			[VSystemID.Raw.ChannelF] = "Channel F",
 			[VSystemID.Raw.Coleco] = "ColecoVision",
 			// DEBUG
+			[VSystemID.Raw.Doom] = "Doom",
 			[VSystemID.Raw.GBL] = "Game Boy Link",
 			[VSystemID.Raw.GB] = "GB",
 			[VSystemID.Raw.SGB] = "SGB",

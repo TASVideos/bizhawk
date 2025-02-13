@@ -478,6 +478,10 @@ namespace BizHawk.Emulation.Common
 					game.AddOption("VEC", "true");
 					break;
 
+				case ".WAD":
+					game.System = VSystemID.Raw.Doom;
+					break;
+
 				case ".ZIP":
 				case ".7Z":
 					game.System = VSystemID.Raw.Arcade;

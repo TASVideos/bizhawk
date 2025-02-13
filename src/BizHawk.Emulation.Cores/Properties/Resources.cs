@@ -27,5 +27,6 @@ namespace BizHawk.Emulation.Cores.Properties {
 		internal static readonly Lazy<byte[]> JAGUAR_KSERIES_ROM = new(() => ReadEmbeddedByteArray("JAGUAR_KSERIES.ROM.zst"));
 		internal static readonly Lazy<byte[]> JAGUAR_MSERIES_ROM = new(() => ReadEmbeddedByteArray("JAGUAR_MSERIES.ROM.zst"));
 		internal static readonly Lazy<byte[]> JAGUAR_MEMTRACK_ROM = new(() => ReadEmbeddedByteArray("JAGUAR_MEMTRACK.ROM.zst"));
+		internal static readonly Lazy<byte[]> DSDA_DOOM_WAD = new(() => ReadEmbeddedByteArray("dsda-doom.zst"));
 	}
 }

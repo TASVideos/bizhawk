@@ -47,6 +47,9 @@ namespace BizHawk.Emulation.Cores
 		JAD, SBI,
 		M3U,
 
+		// Doom IWad/PWad File Types
+		WAD,
+
 		//audio codec formats
 		WAV, APE, MPC, FLAC,
 		MP3, //can't be ID'd very readily..
@@ -370,6 +373,9 @@ namespace BizHawk.Emulation.Cores
 			{ "CRT", new ExtensionInfo(FileIDType.C64, null ) },
 			{ "NIB", new ExtensionInfo(FileIDType.C64, null ) }, //not supported yet
 			
+			// Doom IWad / PWad
+			{ "WAD", new ExtensionInfo(FileIDType.WAD, null ) },
+
 			//for now
 			{ "ROM", new ExtensionInfo(FileIDType.Multiple, null ) }, //could be MSX too
 
