@@ -52,7 +52,10 @@ namespace BizHawk.Emulation.Cores
 		MP3, //can't be ID'd very readily..
 		
 		//misc disc-related files:
-		ECM
+		ECM,
+
+	    // DOS Floppy Disk Images
+		DOS_FLOPPY
 	}
 
 	public class FileIDResult
@@ -369,7 +372,11 @@ namespace BizHawk.Emulation.Cores
 			{ "G64", new ExtensionInfo(FileIDType.C64, null ) },
 			{ "CRT", new ExtensionInfo(FileIDType.C64, null ) },
 			{ "NIB", new ExtensionInfo(FileIDType.C64, null ) }, //not supported yet
-			
+
+			// DOS Floppy Disks
+			{ "IMA", new ExtensionInfo(FileIDType.DOS_FLOPPY, null ) },
+			{ "IMG", new ExtensionInfo(FileIDType.DOS_FLOPPY, null ) },
+
 			//for now
 			{ "ROM", new ExtensionInfo(FileIDType.Multiple, null ) }, //could be MSX too
 

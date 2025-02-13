@@ -38,6 +38,7 @@ namespace BizHawk.Client.EmuHawk
 				VSystemID.Raw.AppleII,
 				VSystemID.Raw.Arcade,
 				VSystemID.Raw.C64,
+				VSystemID.Raw.DOS,
 				VSystemID.Raw.GBL,
 				VSystemID.Raw.GEN,
 				VSystemID.Raw.GGL,
@@ -337,6 +338,11 @@ namespace BizHawk.Client.EmuHawk
 		private void OnDragEnter(object sender, DragEventArgs e)
 		{
 			e.Effect = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
+		}
+
+		private void MultiDiskBundler_Load(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
